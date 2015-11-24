@@ -1,12 +1,17 @@
 import scipy as sp
-import numpy as np
-import matplotlib.pyplot as plt
-import random
-from scipy.stats import binom
-from scipy.stats import poisson
+import time
 
-a = [[1,2,3],[1,2,3],[3,3,3],[4,1,1]]
+n = 10**7
+a = sp.random.binomial(1,0.1,n)
 print a
-print sum(a[1])
-print sum(a[2])
-print sum(a[3])
+t = time.time()
+b = a.nonzero()
+d = time.time()
+print d - t
+print b
+i = 0
+t1 = time.time()
+while(i<n)and(a[i]!=0):
+    i+=1
+t2 = time.time()
+print a[i]
